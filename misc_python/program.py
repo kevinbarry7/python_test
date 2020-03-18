@@ -70,3 +70,7 @@ print("____Lists___")
 
 bicycles = ["trek", "specialized", "redline", "cannondale"]
 print(bicycles)
+
+print(bicycles[0])
+print(bicycles[1].title())
+print(f"My first bicycle was a {bicycles[1].title()} model")
