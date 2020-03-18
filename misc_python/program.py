@@ -24,6 +24,8 @@ favorite_language1 = '   JavaScript'
 clean_fl = favorite_language.rstrip()
 clean_fl1 = favorite_language1.lstrip()
 
+print(f"{clean_fl} & {clean_fl1}")
+
 name1 = "Kevin"
 print(f"Hello {name1}, would you like to learn Python today?")
 print(name1.lower())
@@ -60,3 +62,11 @@ one = "one"
 another_one = "1.0"
 last_one = "one 1"
 print(float(six))
+
+x, y, z = 0, 1, 2
+print(x, y, z)
+print()
+print("____Lists___")
+
+bicycles = ["trek", "specialized", "redline", "cannondale"]
+print(bicycles)
