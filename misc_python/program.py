@@ -192,3 +192,100 @@ print(my_foods)
 print("\nMy friend's favorite foods are:")
 print(friend_foods)
 
+print("\n________Tuples__________")
+dimensions = (200, 50)
+print(dimensions[0])
+print(dimensions[1])
+
+for dimension in dimensions:
+    print(dimension)
+
+my_tuple = (4,) #also a valid tuple with one entry but must include comma
+
+dimensions = (400, 50)
+
+print("____________If_____________-")
+
+cars = ['audi', 'volvo', 'bmw', 'ford']
+for car in cars:
+    if car == 'bmw':
+        print(car.upper())
+    else:
+        print(car.title())
+
+requested_topping = 'mushrooms'
+if requested_topping != 'anchovies':
+    print("Hold the anchovies")
+
+answer = 17
+if answer != 42:
+    print("That is not the correct answer. Please try again\n")
+
+requested_toppings = ['mushrooms', 'onions', 'green peppers', 'pineapple']
+if 'pineapple' in requested_toppings:
+    print("Yep, pineapple are in the list\n")
+
+if 'pepperoni' not in requested_toppings:
+    print("Nope, pepperoni is not in the list\n")
+
+age = 16
+if age > 17:
+    print("You are old enough to vote")
+    print("Have you registered to vote yet?")
+else:
+    print("Sorry, you are too young to vote")
+    print("Please register as soon as you turn 18\n")
+
+ages = 12
+if ages < 4:
+    print("Your admission cost is $0\n")
+elif ages <= 18:
+    print("Your admission cost is $25\n")
+else:
+    print("Your admission cost is $40\n")
+
+alien_color = 'red'
+if alien_color == 'green':
+    print("You have just earned 5 points!\n")
+elif alien_color == 'yellow':
+    print("You have just earned 10 points!\n")
+elif alien_color == 'red':
+    print("Your have just earned 15 points!\n")
+
+age1 = 48
+if age1 < 2:
+    print("Person is a baby")
+elif age1 <4:
+    print("Person is a toddler")
+elif age1 < 13:
+    print("Person is a kid")
+elif age1 <20:
+    print("Person is a teenager")
+elif age1 < 65:
+    print("Person is an adult")
+else:
+    print("Person is an elder")
+
+favorite_fruit = ['apple', 'banana', 'pineapple', 'peach']
+if 'apple' in favorite_fruit:
+    print("You really like apples\n")
+if 'peach' in favorite_fruit:
+    print("You really like peaches\n")
+if 'limes' not in favorite_fruit:
+    print("I guess you don't like limes\n")
+
+for requested in requested_toppings:
+    if requested == 'green peppers':
+        print("Sorry, we're out of green peppers right now.")
+    else:
+        print(f"Adding {requested}.")
+print("Finished making your pizza!\n")
+
+requested1 = []
+if requested1:
+    for requested_top in requested1:
+        print(f"Adding {requested_top}")
+    print("Finished making your pizza!")
+else:
+    print("Are you sure you want a plain pizza?\n")
+
