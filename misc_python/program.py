@@ -289,3 +289,46 @@ if requested1:
 else:
     print("Are you sure you want a plain pizza?\n")
 
+available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
+requestedd_toppings = ['mushrooms', 'french fries', 'extra cheese']
+
+for requestedd_topping in requestedd_toppings:
+    if requestedd_topping in available_toppings:
+        print(f"Adding {requestedd_topping}")
+    else:
+        print(f"Sorry, we don't have {requestedd_topping}")
+print("Finished making your pizza\n")
+
+user_names = ['mary', 'kfb', 'april', 'admin', 'ellen']
+if user_names:
+    for user_name in user_names:
+        if user_name == 'admin':
+            print(f"Hello {user_name}, would you like to see a status report?")
+        else:
+            print(f"Hello {user_name}, thank you for logging in again.")
+else:
+    print("There are no users registered in this system!")
+print("\n")
+
+new_users = ['kfB', 'john', 'sean', 'steph', 'ellen']
+
+if new_users:
+    for new_user in new_users:
+        if new_user.lower() in user_names:
+            print(f"The user name {new_user} is already taken")
+        else:
+            print(f"The user name {new_user} can be used")
+print("Done!\n")
+
+numbers_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+for number2 in numbers_list:
+    if number2 == 1:
+        print(f"{number2}st\n")
+    elif number2 == 2:
+        print(f"{number2}nd\n")
+    elif number2 == 3:
+        print(f"{number2}rd\n")
+    else:
+        print(f"{number2}th\n")
+print("All done!!!")
