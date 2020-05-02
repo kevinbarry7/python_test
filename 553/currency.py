@@ -226,18 +226,19 @@ def service_response(src, dst, amt):
     assert type(dst) == str and introcs.isalpha(dst), 'Precondition violation'
     assert type(amt) == float or type(amt) == int, 'Precondition violation'
 
-    # q = 'https://ecpyfac.ecornell.com/python/currency/fixed?src=USD&dst=EUR&amt=2.5&key=a1b2c3d4'
+
+    #q = 'https://ecpyfac.ecornell.com/python/currency/fixed?src=USD&dst=EUR&amt=2.5&key=a1b2c3d4'
     q = 'https://ecpyfac.ecornell.com/python/currency/fixed?'
     q += 'src=' + src
     q += '&dst=' + dst
     q += '&amt=' + str(amt)
-    # q += '&key=a1b2c3d4'
+    #q += '&key=a1b2c3d4'
     q += '&key=' + APIKEY
     response = introcs.urlread(q)
     return response
 
 
-def iscurrency(a,):
+def iscurrency(a):
     """
     Returns True if currency is a valid (3 letter code for a) currency.
 
@@ -248,15 +249,47 @@ def iscurrency(a,):
     """
     assert type(a) == str and introcs.isalpha(a), 'Precondition violation'
 
-    # print(a)
-    # src = a
-    # print(src)
-    # json = service_response(src, 'EUR', 2.5)
+    json = service_response(a, a, 0.0)
     # print(json)
-    # q = has_error(json)
+    q = has_error(json)
     # print(q)
-    # return q
-    result = service_response(a, a, 0.0)
-    return bool(result == 0)
+    # print (type(q))
+    q = not q
+    # print(q)
+    return q
 
+
+def exchange(src, dst, amt):
+    """
+    Returns the amount of currency received in the given exchange.
+
+    In this exchange, the user is changing amt money in currency src to the currency
+    dst. The value returned represents the amount in currency currency_to.
+
+    The value returned has type float.
+
+    Parameter src: the currency on hand
+    Precondition src is a string for a valid currency code
+
+    Parameter dst: the currency to convert to
+    Precondition dst is a string for a valid currency code
+
+    Parameter amt: amount of currency to convert
+    Precondition amt is a float or int
+    """
+
+    assert type(src) == str and iscurrency(src), 'Precondition violation'
+    assert type(dst) == str and iscurrency(dst), 'Precondition violation'
+    assert type(amt) == float or type(amt) == int, 'Precondition violation'
+
+    json = service_response(src, dst, amt)
+    # print(json)
+    conv_amt = get_dst(json)
+    # print(conv_amt)
+    dst_amt = before_space(conv_amt)
+    # print(dst_amt)
+    # print(type(dst_amt))
+    dst_amt = float(dst_amt)
+    # print(type(dst_amt))
+    return dst_amt
 
