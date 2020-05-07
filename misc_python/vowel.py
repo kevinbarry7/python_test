@@ -1,6 +1,7 @@
 import introcs
 
-def first_vowl(s):
+
+def first_vowel(s):
 
     result = len(s)
 
@@ -19,5 +20,5 @@ def first_vowl(s):
     return result
 
 
-place = first_vowl('sss')
+place = first_vowel('sss')
 print(place)
