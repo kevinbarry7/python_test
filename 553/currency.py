@@ -8,7 +8,6 @@ in this module is exchange().
 Author: Kevin Barry
 Date: April 18th 2020
 """
-
 import introcs
 APIKEY = '6gPsrpGIwEI6OeqAJ5YFBiZb8ACKoJ9RCRoSenEcJHke'
 
@@ -22,9 +21,9 @@ def before_space(s):
     Parameter s: the string to slice
     Precondition: s is a string with at least one space in it
     """
-
     assert type(s) == str, 'Precondition violation'
     assert introcs.count_str(s, " ") >= 1, 'Precondition violation'
+
     space_count = introcs.count_str(s, ' ')
     count = introcs.find_str(s, ' ')
     result = s[ : count]
@@ -43,6 +42,7 @@ def after_space(s):
     """
     assert type(s) == str, 'Precondition violation'
     assert introcs.count_str(s, " ") >= 1, 'Precondition violation'
+
     # count = introcs.rfind_str(s,' ')
     count = introcs.find_str(s, ' ')
     # print(count)
@@ -65,7 +65,6 @@ def first_inside_quotes(s):
     Parameter s: a string to search
     Precondition: s is a string with at least two (double) quote characters inside
     """
-
     assert type(s) == str, 'Precondition violation'
     assert introcs.count_str(s, '"') >= 2, 'Precondition violation'
 
@@ -104,12 +103,10 @@ def get_src(json):
     Parameter json: a json string to parse
     Precondition: json a string provided by the web service (ONLY enforce the type)
     """
-
     assert type(json) == str, 'Precondition violation'
 
     colon1 = introcs.index_str(json, ':')
     colon2 = introcs.index_str(json, ':', colon1 + 1)
-
     count1 = introcs.find_str(json, '"', colon2)
     count2 = introcs.find_str(json, '"', count1 + 1)
     result = json[count1 + 1:count2]
@@ -142,13 +139,11 @@ def get_dst(json):
     Parameter json: a json string to parse
     Precondition: json a string provided by the web service (ONLY enforce the type)
     """
-
     assert type(json) == str, 'Precondition violation'
 
     colon1 = introcs.index_str(json, ':')
     colon2 = introcs.index_str(json, ':', colon1 + 1)
     colon3 = introcs.index_str(json, ':', colon2 + 1)
-
     count1 = introcs.find_str(json, '"', colon3)
     count2 = introcs.find_str(json, '"', count1 + 1)
     result = json[count1 + 1:count2]
@@ -180,9 +175,7 @@ def has_error(json):
     Parameter json: a json string to parse
     Precondition: json a string provided by the web service (ONLY enforce the type)
     """
-
     assert type(json) == str, 'Precondition violation'
-
     colon1 = introcs.index_str(json, ':')
     colon2 = introcs.index_str(json, ':', colon1 + 1)
     colon3 = introcs.index_str(json, ':', colon2 + 1)
@@ -221,18 +214,16 @@ def service_response(src, dst, amt):
     Parameter amt: amount of currency to convert
     Precondition amt is a float or int
     """
-
     assert type(src) == str and introcs.isalpha(src), 'Precondition violation'
     assert type(dst) == str and introcs.isalpha(dst), 'Precondition violation'
     assert type(amt) == float or type(amt) == int, 'Precondition violation'
 
-
-    #q = 'https://ecpyfac.ecornell.com/python/currency/fixed?src=USD&dst=EUR&amt=2.5&key=a1b2c3d4'
+    # q = 'https://ecpyfac.ecornell.com/python/currency/fixed?src=USD&dst=EUR&amt=2.5&key=a1b2c3d4'
     q = 'https://ecpyfac.ecornell.com/python/currency/fixed?'
     q += 'src=' + src
     q += '&dst=' + dst
     q += '&amt=' + str(amt)
-    #q += '&key=a1b2c3d4'
+    # q += '&key=a1b2c3d4'
     q += '&key=' + APIKEY
     response = introcs.urlread(q)
     return response
@@ -247,16 +238,21 @@ def iscurrency(a):
     Parameter currency: the currency code to verify
     Precondition: currency is a nonempty string with only letters
     """
-    assert type(a) == str and introcs.isalpha(a), 'Precondition violation'
+    # assert type(a) == str and introcs.isalpha(a), 'Precondition violation'
+    #
+    # json = service_response(a, a, 0.0)
+    # # print(json)
+    # q = has_error(json)
+    # # print(q)
+    # # print (type(q))
+    # q = not q
+    # # print(q)
+    # return q
+    assert type(a) == str, repr(a) + 'is not a string.'
 
-    json = service_response(a, a, 0.0)
-    # print(json)
+    json = service_response(a, a, 1)
     q = has_error(json)
-    # print(q)
-    # print (type(q))
-    q = not q
-    # print(q)
-    return q
+    return q == False
 
 
 def exchange(src, dst, amt):
@@ -277,7 +273,6 @@ def exchange(src, dst, amt):
     Parameter amt: amount of currency to convert
     Precondition amt is a float or int
     """
-
     assert type(src) == str and iscurrency(src), 'Precondition violation'
     assert type(dst) == str and iscurrency(dst), 'Precondition violation'
     assert type(amt) == float or type(amt) == int, 'Precondition violation'
