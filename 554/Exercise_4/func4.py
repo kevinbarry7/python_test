@@ -23,4 +23,23 @@ def first_vowel(s):
     Parameter s: the string to search
     Precondition: s is a nonempty string with only lowercase letters
     """
-    pass
+    result = len(s)
+
+    if introcs.find_str(s, 'a') > -1:
+        result = introcs.find_str(s, 'a')
+    if -1 < introcs.find_str(s, 'e') < result:
+        result = introcs.find_str(s, 'e')
+    if -1 < introcs.find_str(s, 'i') < result:
+        result = introcs.find_str(s, 'i')
+    if -1 < introcs.find_str(s, 'o') < result:
+        result = introcs.find_str(s, 'o')
+    if -1 < introcs.find_str(s, 'u') < result:
+        result = introcs.find_str(s, 'u')
+    if -1 < introcs.find_str(s, 'y', 1) < result:
+        result = introcs.find_str(s, 'y', 1)
+
+    return result if -1 < result < len(s) else -1
+    return result
+
+result1 = first_vowel('grrm')
+print(result1)

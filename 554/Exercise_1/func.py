@@ -37,9 +37,8 @@ def first_vowel(s):
         result = introcs.find_str(s, 'u')
     if -1 < introcs.find_str(s, 'y', 1) < result:
         result = introcs.find_str(s, 'y', 1)
-
     return result
 
 
-result1 = first_vowel('grrrm')
+result1 = first_vowel('yyeat')
 print(result1)
