@@ -20,7 +20,7 @@ print(alien_1)
 alien_1['color'] = 'yellow'
 print(alien_1)
 
-alien_1 = {'x_position':0 , 'y_position':25 , 'speed': 'medium'}
+alien_1 = {'x_position': 0, 'y_position': 25, 'speed': 'medium'}
 if alien_1['speed'] == 'slow':
     x_increment = 1
 elif alien_1['speed'] == 'medium':
@@ -36,10 +36,10 @@ del alien_2['color']
 print(alien_2)
 
 favorite_languages = {
-    'jen' : 'python',
-    'sarah' : 'c',
-    'edward' : 'ruby',
-    'phil' : 'python',
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
 }
 language = favorite_languages['sarah'].title()
 print(f"Sarah's favorite language is {language}.\n")
@@ -69,10 +69,7 @@ user_0 = {
     'first': 'enrico',
     'last': 'fermi',
 }
-for key,value in user_0.items():
-    print(f"Key: {key}")
-    print(f"Value: {value}")
-    print("\n")
-
-
-
+# for key.value in user_0.items():
+#     print(f"Key: {key}")
+#     print(f"Value: {value}")
+#     print("\n")
