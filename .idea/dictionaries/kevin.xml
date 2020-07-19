@@ -2,7 +2,11 @@
   <dictionary name="kevin">
     <words>
       <w>apikey</w>
+      <w>daycycle</w>
       <w>iscurrency</w>
+      <w>sunrisetime</w>
+      <w>sunsettime</w>
+      <w>timez</w>
     </words>
   </dictionary>
 </component>
